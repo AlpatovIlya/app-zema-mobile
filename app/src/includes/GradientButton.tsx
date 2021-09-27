@@ -22,7 +22,13 @@ const GradientButton: FC<Props & TouchableOpacityProps> = ({
   const theme = useContext(ThemeContext);
   return (
     <LinearGradient
-      style={[styles.wrapper, wrapperStyle]}
+      style={[
+        styles.wrapper,
+        wrapperStyle,
+        {
+          opacity: props.disabled ? 0.5 : 1,
+        },
+      ]}
       colors={[theme.colors.sub, theme.colors.main]}
       start={{
         x: 0,

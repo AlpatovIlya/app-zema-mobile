@@ -11,6 +11,14 @@ const rootStyles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: '400',
   },
+  helper: {
+    color: '#646464',
+    fontSize: 15,
+  },
+  link: {
+    fontWeight: '600',
+    textDecorationLine: 'underline',
+  },
 });
 
 export default rootStyles;
