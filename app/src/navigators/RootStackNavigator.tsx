@@ -2,6 +2,9 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {AuthNavigator} from './navigators';
+import {ScreenNames} from '../constants';
+
+const RootScreenNames = ScreenNames.RootScreenNames;
 
 const Stack = createNativeStackNavigator();
 const RootStackNavigator = () => {
@@ -11,7 +14,7 @@ const RootStackNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="auth" component={AuthNavigator} />
+        <Stack.Screen name={RootScreenNames.AUTH} component={AuthNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );
