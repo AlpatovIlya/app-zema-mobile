@@ -1,16 +1,9 @@
-import React, {useState} from 'react';
-import {ThemeContext} from './src/context';
+import {observer} from 'mobx-react';
+import React from 'react';
 import {RootStackNavigator} from './src/navigators';
-import {lightTheme} from './src/themes';
 
-const App = () => {
-  const [theme] = useState(lightTheme);
-
-  return (
-    <ThemeContext.Provider value={theme}>
-      <RootStackNavigator />
-    </ThemeContext.Provider>
-  );
-};
+const App = observer(() => {
+  return <RootStackNavigator />;
+});
 
 export default App;
