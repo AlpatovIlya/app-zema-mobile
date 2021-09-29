@@ -1,5 +1,4 @@
 import {makeAutoObservable} from 'mobx';
-import {Alert} from 'react-native';
 import {User} from '../models';
 import {accountService} from '../services';
 
@@ -12,13 +11,15 @@ class AccountStore {
   }
 
   async login(phone: string, password: string) {
+    console.log('start');
+
     try {
-      Alert.alert('Начало');
       this.isLoading = true;
       this.user = await accountService.signIn(phone, password);
     } catch (e) {
-      Alert.alert('конец');
       this.isLoading = false;
+      console.log('end');
+      console.log('=========');
     }
   }
 }

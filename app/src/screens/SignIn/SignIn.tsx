@@ -10,6 +10,8 @@ import {InputField, InputPhoneField} from '../../includes/InputField';
 import {rootStyles} from '../../styles';
 import {mainTheme} from '../../themes';
 import {accountStore} from '../../store';
+import {useNavigation} from '@react-navigation/core';
+import {ScreenNames} from '../../constants';
 
 const schema = yup
   .object({
@@ -25,6 +27,7 @@ const schema = yup
   .required();
 
 const SignIn = () => {
+  const navigation = useNavigation<any>();
   const inputPhone = useRef(null);
   const {
     handleSubmit,
@@ -43,7 +46,7 @@ const SignIn = () => {
     <SafeAreaView>
       <View style={styles.form}>
         <Text style={[styles.title, rootStyles.title]}>
-          Вход в личный кабинет {accountStore.isLoading ? 'Loading' : 'False'}
+          Вход в личный кабинет
         </Text>
         <Controller
           control={control}
@@ -89,7 +92,13 @@ const SignIn = () => {
         </LinearButton>
         <Text style={[styles.bottomText, rootStyles.text]}>
           Еще нет аккаунта?{' '}
-          <Text style={rootStyles.link}>Зарегистрироваться</Text>
+          <Text
+            style={rootStyles.link}
+            onPress={() =>
+              navigation.navigate(ScreenNames.AuthScreenNames.SIGN_UP)
+            }>
+            Зарегистрироваться
+          </Text>
         </Text>
       </View>
     </SafeAreaView>
